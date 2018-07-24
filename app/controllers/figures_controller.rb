@@ -1,6 +1,6 @@
 class FiguresController < ApplicationController
   get :'/figures/new' do
-    erb :'figures/new'
+    erb :'/figures/new'
   end
 
   post '/figures' do
@@ -19,13 +19,19 @@ class FiguresController < ApplicationController
   end
 
   get '/figures' do
-    erb :'figures/index'
+    erb :'/figures/index'
   end
 
   get '/figures/:id' do
     @figure = Figure.find_by_id(params[:id])
 
     erb :'/figures/show'
+  end
+
+  get '/figures/:id/edit' do
+    @figure = Figure.find_by_id(params[:id])
+
+    erb :'/figures'
   end
 
 end
