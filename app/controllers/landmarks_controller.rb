@@ -31,8 +31,6 @@ class LandmarksController < ApplicationController
     @landmark.update(params[:figure])
     @landmark.save
 
-    @figure.save
-
-    redirect to "/figures/#{@figure.id}"
+    redirect to "/landmarks/#{@landmark.id}"
   end
 end
