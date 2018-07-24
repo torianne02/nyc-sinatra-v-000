@@ -10,11 +10,12 @@ class LandmarksController < ApplicationController
   get '/landmarks/:id' do
     @landmark = Landmark.find_by_id(params[:id])
 
-    erb :'/figures/show'
+    erb :'/landmarks/show'
   end
 
   post '/landmarks' do
-    @landmark = Landmark.new(params[:landmark])
+    @landmark = Landmark.create(params[:landmark])
+    @landmark.save
 
     if !params[:title][:name].empty?
       @figure.titles << Title.new(name: params[:title][:name])
