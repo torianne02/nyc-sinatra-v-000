@@ -11,4 +11,5 @@ class FiguresController < ApplicationController
 
     if !params[:landmark][:name].empty?
       @figure.landmarks << Landmark.new(name: params[:landmark][:name], year_completed: params[:landmark][:year_completed])
+    end
 end
