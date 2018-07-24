@@ -1,6 +1,16 @@
 class LandmarksController < ApplicationController
+  get '/landmarks' do
+    erb :'/landmarks/index'
+  end
+
   get '/landmarks/new' do
     erb :'landmarks/new'
+  end
+
+  get '/landmarks/:id' do
+    @landmark = Landmark.find_by_id(params[:id])
+
+    erb :'/figures/show'
   end
 
   post '/landmarks' do
@@ -16,16 +26,6 @@ class LandmarksController < ApplicationController
     @figure.save
 
     redirect to "/figures/#{@figure.id}"
-  end
-
-  get '/landmarks' do
-    erb :'/landmarks/index'
-  end
-
-  get '/figures/:id' do
-    @figure = Figure.find_by_id(params[:id])
-
-    erb :'/figures/show'
   end
 
   get '/figures/:id/edit' do
