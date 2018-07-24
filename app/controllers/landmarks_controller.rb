@@ -17,16 +17,7 @@ class LandmarksController < ApplicationController
     @landmark = Landmark.create(params[:landmark])
     @landmark.save
 
-    if !params[:title][:name].empty?
-      @figure.titles << Title.new(name: params[:title][:name])
-    end
-    if !params[:landmark][:name].empty?
-      @figure.landmarks << Landmark.new(name: params[:landmark][:name], year_completed: params[:landmark][:year_completed])
-    end
-
-    @figure.save
-
-    redirect to "/figures/#{@figure.id}"
+    redirect to "/landmarks/#{@landmark.id}"
   end
 
   get '/figures/:id/edit' do
