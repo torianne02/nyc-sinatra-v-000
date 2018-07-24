@@ -19,5 +19,11 @@
   <label>Create New Title:</label>
     <input type="text" name="title[name]" id="new_title">
 
+  <br>
+
+  <label>Landmark(s)</label>
+    <% Landmark.all.each do |title| %>
+      <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="<%= landmark.id %>" <%= 'checked' if @figure.landmarks.include?(landmark) %>> <%= landmark.name %></input>
+
 
 </form>
