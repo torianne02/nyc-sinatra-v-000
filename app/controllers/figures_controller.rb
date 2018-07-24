@@ -1,4 +1,8 @@
 class FiguresController < ApplicationController
+  get '/figures' do
+    erb :'/figures/index'
+  end
+
   get '/figures/new' do
     erb :'figures/new'
   end
@@ -16,10 +20,6 @@ class FiguresController < ApplicationController
     @figure.save
 
     redirect to "/figures/#{@figure.id}"
-  end
-
-  get '/figures' do
-    erb :'/figures/index'
   end
 
   get '/figures/:id' do
