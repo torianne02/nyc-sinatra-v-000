@@ -45,4 +45,9 @@ class FiguresController < ApplicationController
       @figure.landmarks << Landmark.new(name: params[:landmark][:name], year_completed: params[:landmark][:year_completed])
     end
 
+    @figure.save
+
+    redirect to "/figures/#{@figure.id}"
+  end
+
 end
