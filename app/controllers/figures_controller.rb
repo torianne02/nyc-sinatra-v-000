@@ -42,7 +42,7 @@ class FiguresController < ApplicationController
       @figure.titles << Title.new(name: params[:title][:name])
     end
     if !params[:landmark][:name].empty?
-      @figure.landmarks << Landmark.new(name: params[:landmark][:name], year_completed: params[:landmark][:year_completed])
+      @figure.landmarks << Landmark.new(name: params[:landmark][:name], year_completed: params[:landmark][:year])
     end
 
     @figure.save
