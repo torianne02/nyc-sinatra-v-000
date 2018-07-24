@@ -26,16 +26,10 @@ class LandmarksController < ApplicationController
     erb :'/landmarks/edit'
   end
 
-  patch '/figures/:id' do
-    @figure = Figure.find_by_id(params[:id])
-    @figure.update(params[:figure])
-
-    if !params[:title][:name].empty?
-      @figure.titles << Title.new(name: params[:title][:name])
-    end
-    if !params[:landmark][:name].empty?
-      @figure.landmarks << Landmark.new(name: params[:landmark][:name], year_completed: params[:landmark][:year_completed])
-    end
+  patch '/landmarks/:id' do
+    @landmark = Landmark.find_by_id(params[:id])
+    @landmark.update(params[:figure])
+    @landmark.save
 
     @figure.save
 
