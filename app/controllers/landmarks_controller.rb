@@ -20,7 +20,7 @@ class LandmarksController < ApplicationController
     redirect to "/landmarks/#{@landmark.id}"
   end
 
-  get '/figures/:id/edit' do
+  get '/landmarks/:id/edit' do
     @landmark = Landmark.find_by_id(params[:id])
 
     erb :'/landmarks/edit'
