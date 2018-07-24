@@ -19,7 +19,7 @@ class LandmarksController < ApplicationController
   end
 
   get '/landmarks' do
-    erb :'/figures/index'
+    erb :'/landmarks/index'
   end
 
   get '/figures/:id' do
