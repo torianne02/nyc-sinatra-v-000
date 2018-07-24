@@ -3,12 +3,19 @@
 <form method="POST" action="/figures">
   Name: <input type="text" id="figure_name" name="figure[name]">
 
-  Titles:
+  <h3>Titles:</h3>
     <% Title.all.each do |title| %>
       <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" id="title_<%= title.id %>"> <%= title.name %></input>
     <% end %>
 
-  Or, Create New Title: <input type="text" id="title_name" name="title[name]">
+  <h3>Or, Create New Title:</h3> <input type="text" id="new_title_name" name="title[name]">
+
+  <h3>Landmarks</h3>
+    <% Landmark.all.each do |landmark| %>
+      <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="landmark_<%= landmark.id %>"> <%= landmark.name %></input>
+    <% end %>
+
+  <h3>Or, Create New Landmark:</h3> <input type="text" id="new_landmark_name" name="landmark[name]">
 
 
 
