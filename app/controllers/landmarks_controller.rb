@@ -21,9 +21,9 @@ class LandmarksController < ApplicationController
   end
 
   get '/figures/:id/edit' do
-    @figure = Figure.find_by_id(params[:id])
+    @landmark = Landmark.find_by_id(params[:id])
 
-    erb :'/figures/edit'
+    erb :'/landmarks/edit'
   end
 
   patch '/figures/:id' do
